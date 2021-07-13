@@ -1,0 +1,24 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% include 'nav.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <h1>Please Login</h1>
+      {% with messages = get_flashed_messages() %}
+        {% if messages: %}
+        {% for message in messages: %}
+        <p style="color: red;"><em>{{ message }}</em></p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+      {{ wtf.quick_form(form, novalidate=True) }}
+
+    </div>
+  </div>
+</div>
+</body>
+<footer>
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+</footer>
+</html>

@@ -1,0 +1,33 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% include 'nav.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      {% if success: %}
+      <h1 class="success">New Cafe Data Added!</h1>
+      <h2>Add another cafe</h2>
+      {% else: %}
+      <h1>Add a new cafe into the database</h1>
+      {% endif %}
+      {% with messages = get_flashed_messages() %}
+        {% if messages: %}
+        {% for message in messages: %}
+        <p style="color: red;"><em>{{ message }}</em></p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+      {{ wtf.quick_form(form, novalidate=True) }}
+
+
+	  <p class="space-above"><a href="{{ url_for('cafes') }}">See all cafes</a></p>
+
+    </div>
+  </div>
+</div>
+</body>
+<footer>
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+</footer>
+</html>
+

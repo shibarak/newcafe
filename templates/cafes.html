@@ -1,0 +1,61 @@
+
+{% include 'nav.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>All Cafes</h1>
+            <div class="tableFixHead cafeTable">
+                <table class="table">
+                    <thead class="thead-warning">
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Sockets</th>
+                            <th>WiFi</th>
+                            <th>Toilets</th>
+                            <th>Coffee Price</th>
+                            <th>Seats</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for cafe in cafes: %}
+                        <tr>
+                            <td>
+                                <img class="cafe_image" src="{{ cafe['img_url'] }}" width="130px">
+                            </td>
+                            <td>{{ cafe['name'] }}</td>
+                            <td><a href="{{ cafe['map_url'] }}">{{ cafe['location'] }}</a> </td>
+                            {% if cafe['has_sockets']: %}
+                            <td>✅</td>
+                            {% else: %}
+                            <td>❌</td>
+                            {% endif %}
+                            {% if cafe['has_wifi']: %}
+                            <td>✅</td>
+                            {% else: %}
+                            <td>❌</td>
+                            {% endif %}
+                             {% if cafe['has_toilet']: %}
+                            <td>✅</td>
+                            {% else: %}
+                            <td>❌</td>
+                            {% endif %}
+                            <td>{{ cafe['coffee_price'] }}</td>
+                            <td>{{ cafe['seats'] }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <p><a href="{{ url_for('home') }}">Return to index page</a></p>
+
+        </div>
+    </div>
+</div>
+</body>
+<footer>
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+</footer>
+</html>

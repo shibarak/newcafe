@@ -1,0 +1,54 @@
+/* This CSS file will need to be added to the styling of 
+your web pages for the styles to be rendered. */
+
+body {
+background-color: #333;
+color: white;
+}
+
+#submit {
+          color: white;
+          background-color: gray;
+}
+
+a {
+    color: #ffc107;
+}
+
+.jumbotron {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  color: white;
+  background-color: #333;
+}
+
+.space-above {
+    margin-top: 20px;
+    padding-top: 20px;
+}
+.thead-warning{
+    background-color: #ffc107;
+    color: black;
+}
+
+.success{
+    color: #ffc107;
+}
+
+.cafe_img{
+    width: 20px;
+}
+
+.tableFixHead          { overflow: auto; height: 70vh; }
+.tableFixHead thead th { position: sticky; top: 0; z-index: 1;}
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; }
+th     { background: #ffc107;
+         color: black;
+         }
+
+.cafeTable td {color: white;}
